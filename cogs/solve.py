@@ -2,9 +2,9 @@ import disnake
 from disnake.ext import commands
 from error_handler import error_handler
 
-ROLE_ID = 1291795325618491403
-FORUM_CHANNEL_ID = 1291795094025801858
-TAG_ID = 1291831807926341693
+ROLE_ID = 1291795325618491403 # Роль в пінгу і яка може закрити гілку
+FORUM_CHANNEL_ID = 1291795094025801858 # Гілка допомоги
+TAG_ID = 1291831807926341693 # Тег [РЕШЕНО]
 
 
 class Solve(commands.Cog):
@@ -59,7 +59,7 @@ class Solve(commands.Cog):
                     await interaction.response.send_message("Эту ветку закрыто🥞")
                     await thread.edit(name=f"[РЕШЕНО✅] {new_thread_name}", applied_tags = [tag_to_add], archived = True, locked = True)
                 else:
-                    await interaction.response.send_message("Не удалось знайти указанный тег🍽️", ephemeral=True)
+                    await interaction.response.send_message("Не удалось найти указанный тег🍽️", ephemeral=True)
         except Exception as e:
             print(f"Error: {e}")
 
